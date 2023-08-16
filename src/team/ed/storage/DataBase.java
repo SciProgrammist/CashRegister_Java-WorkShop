@@ -16,7 +16,7 @@ public class DataBase {
     private Product[] products;
 
     // Cuando sé instancia una nueva base de datos se tendra un array con espacio para 3 productos:
-    public DataBase(){
+    public DataBase() {
 
         products = new Product[3];
         Product potato = new Potato("Sabanera");
@@ -27,5 +27,20 @@ public class DataBase {
         products[1] = rice;
         products[2] = meat;
 
+    }
+
+
+    // Metodos para regresar el Storage.
+    public Product getByIndex(int index){
+
+        if(index<0 || index>2){
+            System.out.println("¡indice no valido!");
+            return null;
+        }
+        return products[index];
+    }
+
+    public Product[] getAll(){
+        return products;
     }
 }
