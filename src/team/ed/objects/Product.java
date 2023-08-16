@@ -1,11 +1,9 @@
 package team.ed.objects;
 
-import java.awt.*;
-
 public abstract class Product {
     // Atributos de la clase abstracta producto:
 
-    private String nombre;
+    private String name;
     private int amount;
     private double price;
 
@@ -17,17 +15,17 @@ public abstract class Product {
     public Product(){}
 
     // Constructor sobrecargado para poder creas productos con nombre:
-    public Product(String nombre){
-        this.nombre = nombre;
+    public Product(String name){
+        this.name = name;
     }
     // Getters y Setters de los atributos de la clase abstracta:
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAmount() {
@@ -56,4 +54,20 @@ public abstract class Product {
         }  // No se utiliza el else como buena practica en este caso se uso el return para salir del metodo.
         this.price = price;
     }
+
+    /**
+     * Java está obteniendo un método llamado "toString()" el cual pertenece a la clase padre "Object".
+     * Si no le especifica qué es lo que tiene que hacer toString() en el objeto lo que va a hacer es
+     * mostrar cuál es la posición en memoria del objeto. Entonces, para mostrar el estado del objeto,
+     * cuando se realiza la impresión por consola con la instrucción System.out.println(j), requiere
+     * sobreescribir el método toString. En la clase abstracta debe sobreescribir el método toString.
+     *
+     */
+
+    @Override
+    public String toString(){
+        return this.name + " - " + this.amount + " - " + this.price;
+    } //El metodo se ejecuta de forma automatica y remplaza a la salida de consola la cual era una posicion de memoria.
+
+
 }
