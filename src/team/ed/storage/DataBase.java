@@ -5,6 +5,8 @@ import team.ed.objects.Potato;
 import team.ed.objects.Product;
 import team.ed.objects.Rice;
 
+
+
 /**
  *   será la encargada de administrar toda la información de los productos, al menos, del inventario.
  *   También va a almacenar todo el registro de las compras y ventas porque al final del día, se pretende
@@ -13,7 +15,7 @@ import team.ed.objects.Rice;
 public class DataBase {
 
     // Declaracion de un array que almacenara SOLO productos:
-    private Product[] products;
+    private Product[] products; // clase abstracta Product. ya es posible tener un array de productos.
 
     // Cuando sé instancia una nueva base de datos se tendra un array con espacio para 3 productos:
     public DataBase() {
@@ -37,10 +39,27 @@ public class DataBase {
             System.out.println("¡indice no valido!");
             return null;
         }
-        return products[index];
+
+        // devolviendo un clone atrapando la excepcion
+        Product result = null;
+        try {
+            result = products[index].clone();
+        } catch (CloneNotSupportedException cnse) {
+            System.out.println(cnse);
+        }
+        return result;
     }
 
     public Product[] getAll(){
+        Product[] result = new Product[3];
+        try{
+            for(int c = 0; c<result.length; c++){
+                result[c] = result[c].clone();
+            }
+        } catch (CloneNotSupportedException cnse) {
+            System.out.println(cnse);
+
+        }
         return products;
     }
 }
