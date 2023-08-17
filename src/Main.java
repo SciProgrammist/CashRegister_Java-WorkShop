@@ -6,5 +6,7 @@ public class Main {
         DataBase dataBase = new DataBase();
         Product product = dataBase.getByIndex(0);
         System.out.println(product);
+
+
     }
 }
