@@ -1,6 +1,6 @@
 package team.ed.objects;
 
-public abstract class Product {
+public abstract class Product implements Cloneable{
     // Atributos de la clase abstracta producto:
 
     private String name;
@@ -68,6 +68,10 @@ public abstract class Product {
     public String toString(){
         return this.name + " - " + this.amount + " - " + this.price;
     } //El metodo se ejecuta de forma automatica y remplaza a la salida de consola la cual era una posicion de memoria.
+
+    public Product clone() throws  CloneNotSupportedException{
+        return (Product) super.clone();
+    }
 
 
 }
