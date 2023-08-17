@@ -104,4 +104,31 @@ public class DataBase {
         purchases.add(product);
 
     }
+
+    public void setSales(Product product) {
+
+        Product temp = null;
+        switch (product.getClass().getSimpleName()) {
+            case "Potato":
+                temp = products[0];
+                break;
+            case "Rice":
+                temp = products[1];
+                break;
+            case "Meat":
+                temp = products[2];
+                break;
+            default:
+                System.out.println("No valido");
+
+        }
+                temp.setAmount(temp.getAmount() - product.getAmount());
+                product.setPrice(temp.getPrice() * 1.25);
+                sales.add(product);
+    }
+
+        public List<Product> getPurchases(){ return purchases;}
+
+        public List<Product> getSales(){ return sales;}
+
 }
