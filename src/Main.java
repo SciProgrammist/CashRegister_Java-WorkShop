@@ -1,3 +1,4 @@
+import team.ed.controllers.Register;
 import team.ed.objects.Product;
 import team.ed.storage.DataBase;
 import team.ed.views.View;
@@ -25,9 +26,10 @@ public class Main {
             //System.out.println(v);
         //}
 
-        View.showHeaderPrincipal();
-        View.showMenuPrincipal();
-
+        //View.showHeaderPrincipal();
+        //View.showMenuPrincipal();
+        Register register = new Register();
+        register.register();
 
 
     }
