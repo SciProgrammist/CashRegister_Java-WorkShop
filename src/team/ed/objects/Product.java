@@ -1,6 +1,6 @@
 package team.ed.objects;
 
-public abstract class Product implements Cloneable{
+public abstract class Product implements Cloneable {
     // Atributos de la clase abstracta producto:
 
     private String name;
@@ -48,7 +48,7 @@ public abstract class Product implements Cloneable{
 
     // Se procede a validar el metodo setPrice para que no puedan ingresar cantidades negativas:
     public void setPrice(double price) {
-        if(price > 0 ) {
+        if(price < 0 ) {
             System.out.println("No se puede colocar un precio negativo");
             return;
         }  // No se utiliza el else como buena practica en este caso se uso el return para salir del metodo.
@@ -72,6 +72,4 @@ public abstract class Product implements Cloneable{
     public Product clone() throws  CloneNotSupportedException{
         return (Product) super.clone();
     }
-
-
 }

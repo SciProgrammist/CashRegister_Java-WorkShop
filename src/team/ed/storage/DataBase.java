@@ -30,7 +30,7 @@ public class DataBase {
           *
           **/
         products = new Product[3];
-        Product potato = new Potato("Sabanera");
+        Product potato = new Potato("Sabanera  ");
         Product rice = new Rice("Rico Arroz");
         Product meat = new Meat("Lomo de aguja");
 
@@ -66,7 +66,7 @@ public class DataBase {
         Product[] result = new Product[3];
         try{
             for(int c = 0; c<result.length; c++){
-                result[c] = result[c].clone();
+                result[c] = products[c].clone();
             }
         } catch (CloneNotSupportedException cnse) {
             System.out.println(cnse);
@@ -105,7 +105,7 @@ public class DataBase {
 
     }
 
-    public void setSales(Product product) {
+    public void sale(Product product) {
 
         Product temp = null;
         switch (product.getClass().getSimpleName()) {
